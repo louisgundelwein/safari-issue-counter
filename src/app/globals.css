@@ -1,21 +1,159 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+/* Root Theme Variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #339989;
+  --color-secondary: #FFFAFB;
+  --color-highlight-1: #7DE2D1;
+  --color-highlight-2: #B39C4D;
+  --color-usual: #778472;
+
+  --base-light: #FFFAFB; /* Light Mode Background */
+  --base-dark: #1D2020;  /* Dark Mode Background */
+
+  --font-body: "Arial", sans-serif;
+  --font-display: "Satoshi", sans-serif;
+
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0.3, 1);
+  --transition-duration: 200ms;
 }
 
+/* Dark Mode Adjustments */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --base-light: #121212; /* Dark Mode Background */
+    --base-dark: #FFFAFB; /* Inverse for Light Mode Highlights */
   }
 }
 
+/* Global Body Style */
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  background-color: var(--base-light);
+  color: var(--color-primary);
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  transition: background-color var(--transition-duration) var(--ease-standard),
+    color var(--transition-duration) var(--ease-standard);
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.card {
+  background-color: var(--base-dark);
+  color: var(--color-highlight-2);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-duration) var(--ease-standard);
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+/* Buttons */
+.button-primary {
+  background-color: var(--color-primary);
+  color: var(--color-highlight-2);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-family: var(--font-display);
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color var(--transition-duration) var(--ease-standard),
+    transform var(--transition-duration) var(--ease-snappy);
+}
+
+.button-primary:hover {
+  background-color: var(--color-highlight-1);
+}
+
+.button-primary:disabled {
+  background-color: var(--color-highlight-1);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.button-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-usual);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-family: var(--font-display);
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color var(--transition-duration) var(--ease-standard),
+    transform var(--transition-duration) var(--ease-snappy);
+}
+
+.button-secondary:hover {
+  background-color: var(--color-usual);
+  color: var(--base-light);
+}
+
+.button-secondary:disabled {
+  background-color: var(--color-highlight-1);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Highlighted Backgrounds */
+.bg-highlight-1 {
+  background-color: var(--color-highlight-1);
+}
+
+.bg-highlight-2 {
+  background-color: var(--color-highlight-2);
+}
+
+/* Text Colors */
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-highlight-1 {
+  color: var(--color-highlight-1);
+}
+
+.text-highlight-2 {
+  color: var(--color-highlight-2);
+}
+
+/* Forms */
+.input {
+  background-color: var(--base-dark);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  font-family: var(--font-body);
+  transition: border-color var(--transition-duration) var(--ease-standard);
+}
+
+.input:focus {
+  border-color: var(--color-secondary);
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--color-highlight-1);
+  font-style: italic;
 }
