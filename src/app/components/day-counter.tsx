@@ -13,7 +13,7 @@ export default function DayCounter({ incidents }: { incidents: Incident[] }) {
 		: 0;
 
 	return (
-		<div className="flex flex-col items-center justify-center bg-highlight-1 rounded-xl p-8 w-1/4">
+		<div className="flex flex-col items-center justify-center bg-[#ABEDE2] rounded-xl p-8 mx-8">
 			<h2 className="text-center">Days since last Safari incident</h2>
 			<p className="font-bold text-4xl text-center">{daysSinceLastIncident}</p>
 			{closestItem && (

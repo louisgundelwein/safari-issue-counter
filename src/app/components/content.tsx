@@ -13,7 +13,7 @@ export default function Content({ incidents }: { incidents: Incident[] }) {
 
 	return (
 		<div className="flex flex-col justify-center items-center py-8 gap-8">
-			<h1 className="font-extrabold text-4xl">
+			<h1 className="font-extrabold text-4xl m-8 text-center">
 				{'Safari is a very good and sane browser, everyone should use it ._.'}
 			</h1>
 			<DayCounter incidents={incidents} />

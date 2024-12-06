@@ -1,6 +1,6 @@
 'use state';
 import { useState } from 'react';
-import { addNewIncident, deleteIncident } from '../util/db-functions';
+import { addNewIncident } from '../util/db-functions';
 import { Incident } from '@/db/schema';
 import { useRouter } from 'next/navigation'; 
 
@@ -65,8 +65,9 @@ export function IncidentModal({
 }) {
 	const router = useRouter(); // Router für Refresh
 
+
 	const handleDelete = async () => {
-		await deleteIncident(incident.id); // Datenbankoperation
+		//await deleteIncident(incident.id); // Datenbankoperation
 		router.refresh(); // Seite aktualisieren
 		setSelectedIncident(undefined); // Modal schließen
 	};
@@ -97,8 +98,9 @@ export function IncidentModal({
 				</div>
 				<div className="flex justify-between">
 					<button
-						className="bg-red-400 text-white px-4 py-2 rounded cursor-pointer hover:bg-gray-600"
-						onClick={handleDelete}
+            className="bg-red-400 text-white px-4 py-2 rounded cursor-pointer hover:bg-gray-600"
+            onClick={handleDelete}
+            disabled={true}
 					>
 						Delete
 					</button>
