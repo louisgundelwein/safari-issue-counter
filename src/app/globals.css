@@ -2,9 +2,21 @@
 
 /* Root Theme Variables */
 :root {
-  --color-primary: #339989;
-  --color-secondary: #FFFAFB;
-  --color-highlight-1: #7DE2D1;
+  --color-primary: #38A897;
+  --color-primary-light: #57C7B6;
+  --color-primary-dark: #246B60;
+
+  --color-secondary: #F6BD60;
+  --color-secondary-light: #F9D79F;
+  --color-secondary-dark: #F3A62B;
+
+  --color-warning: #DF2D16;
+  --color-warning-light: #EB4833;
+  --color-warning-dark: #BA2612;
+  
+
+  --color-surface-information: #ABEDE2;
+  --color-surface-warning: #F07A6A;
   --color-highlight-2: #B39C4D;
   --color-usual: #778472;
 
