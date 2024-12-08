@@ -1,27 +1,27 @@
 @import "tailwindcss";
 
 /* Root Theme Variables */
-:root {
-  --color-primary: #38A897;
-  --color-primary-light: #57C7B6;
-  --color-primary-dark: #246B60;
+@theme {
+  --color-primary: oklch(66.45% 0.1028 180.95);
+  --color-primary-light: oklch(76.02 0.1053 181.94);
+  --color-primary-dark: oklch(48.05% 0.0721 181.01);
 
-  --color-secondary: #F6BD60;
-  --color-secondary-light: #F9D79F;
-  --color-secondary-dark: #F3A62B;
+  --color-secondary: oklch(83.23% 0.1281 77.66);
+  --color-secondary-light: oklch(89.47% 0.0812 79.83);
+  --color-secondary-dark: oklch(78.17% 0.1548 72.95);
 
-  --color-warning: #DF2D16;
-  --color-warning-light: #EB4833;
-  --color-warning-dark: #BA2612;
+  --color-warning: oklch(58.6% 0.2152 30.94);
+  --color-warning-light: oklch(63.21% 0.203 30.69);
+  --color-warning-dark: oklch(51.33% 0.1863 31.1);
   
 
-  --color-surface-information: #ABEDE2;
-  --color-surface-warning: #F07A6A;
-  --color-highlight-2: #B39C4D;
-  --color-usual: #778472;
+  --color-surface-information: oklch(89.89% 0.0679 183.31);
+  --color-surface-warning: oklch(71.11% 0.1483 29.24);
+  --color-highlight-2: oklch(69.68% 0.1028 93.35);
+  --color-usual: oklch(59.73% 0.0308 136.95);
 
-  --base-light: #FFFAFB; /* Light Mode Background */
-  --base-dark: #1D2020;  /* Dark Mode Background */
+  --base-light: oklch(98.92% 0.00547728685085316 3.3343306677747107); /* Light Mode Background */
+  --base-dark: oklch(24.04% 0.0045 196.86);  /* Dark Mode Background */
 
   --font-body: "Arial", sans-serif;
   --font-display: "Satoshi", sans-serif;
@@ -31,18 +31,24 @@
   --transition-duration: 200ms;
 }
 
-/* Dark Mode Adjustments */
+/* Light Mode Defaults */
+:root {
+  --base-background: var(--base-light); /* Setze Light-Mode-Hintergrund */
+  --base-text: var(--color-primary);
+}
+
+/* Dark Mode Overrides */
 @media (prefers-color-scheme: dark) {
   :root {
-    --base-light: #121212; /* Dark Mode Background */
-    --base-dark: #FFFAFB; /* Inverse for Light Mode Highlights */
+    --base-background: var(--base-dark); /* Setze Dark-Mode-Hintergrund */
+    --base-text: var(--color-primary-dark);
   }
 }
 
 /* Global Body Style */
-body {
+.body {
   font-family: var(--font-body);
-  background-color: var(--base-light);
+  background-color: var(--base-background);
   color: var(--color-primary);
   margin: 0;
   padding: 0;

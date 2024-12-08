@@ -17,7 +17,7 @@ export default function IncidentCard({
 
 	return (
 		<div
-			className="flex flex-col justify-center items-center bg-white rounded-xl px-2 cursor-pointer  py-8 hover:scale-110 transform transition-transform duration-200"
+			className="flex flex-col justify-center items-center bg-primary-light rounded-xl px-2 cursor-pointer  py-8 hover:scale-110 transform transition-transform duration-200"
 			onClick={() => setSelectedIncident(incident)}
 		>
 			<h2 className="w-full items-center align-center">{formattedDate}</h2>
